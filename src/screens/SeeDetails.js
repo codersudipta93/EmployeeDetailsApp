@@ -111,19 +111,19 @@ const SeeDetails = props => {
                                 "qr-code-outline",
                                 "QR Code",
                                 details.qrCode,
-                                "#FFD700"
+                                "#000"
                             )}
                             {renderDetailItem(
                                 "location-outline",
                                 "City",
                                 details.city,
-                                "#FF5733"
+                                "#000"
                             )}
                             {renderDetailItem(
                                 "person-outline",
                                 "Name",
                                 details.name,
-                                "#4CAF50"
+                                "#000"
                             )}
 
                             {/* Action Buttons */}
@@ -140,8 +140,8 @@ const SeeDetails = props => {
                                 <Button
                                     onPress={handleDeleteDetails}
                                     icon={<Ionicons name="trash-outline" size={22} color="white" />}
-                                    title="Submit"
-                                    colors={['#250259', '#250259']}
+                                    title="Delete"
+                                    colors={['#750e23', '#750e23']}
                                     disabled={false}
                                 />
                             </View>
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
     },
     detailLabel: {
         fontSize: 14,
-        color: "rgba(255,255,255,0.7)",
+        color: "#000",
         marginBottom: 4,
     },
     detailText: {

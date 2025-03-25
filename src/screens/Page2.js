@@ -90,7 +90,7 @@ const Page2 = ({ }) => {
               <Ionicons name="person-outline" size={20} color="#6A11CB" style={styles.inputIcon} />
               <TextInput
                 placeholder="Enter Your Name"
-                onChangeText={(text) => setValue("name", text)}
+                onChangeText={(text) => setValue("name", text.trim())}
                 value={watch("name")}
                 style={[styles.input, responsiveStyles.input]}
                 placeholderTextColor="#888"

@@ -40,6 +40,7 @@ const Dashboard = () => {
       const storedData = await getData('userDetails');
       if (!storedData) {
         setLoading(false);
+        setErrMsg("City Not Found. Please add your details");
         return;
       }
 
@@ -56,10 +57,12 @@ const Dashboard = () => {
           setLoading(false);
         }
       } else {
-        setErrMsg("City Details Not Found");
+        setErrMsg("City Details Not Found from API");
+        setLoading(false);
       }
     } catch (error) {
       console.log("Error loading weather:", error);
+      setErrMsg("API error! Please Try again latter");
       setLoading(false);
     }
   };
@@ -108,6 +111,12 @@ const Dashboard = () => {
             </View>
           ) : weather ? (
             <View style={styles.weatherContainer}>
+              <View style={{alignItems:'flex-end',justifyContent:'flex-end',width:'100%'}}>
+              <Ionicons name="refresh-outline" size={24} color="#ffff" onPress={()=>{
+                 setLoading(true)
+                 loadWeather()
+                }}/>
+              </View>
               {/* Weather Icon */}
               <Image
                 source={{
