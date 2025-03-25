@@ -48,7 +48,7 @@ const Dashboard = () => {
 
       if (userDetails.city) {
         setCity(userDetails.city);
-        const apiResponse = await fetchWeather(userDetails.city);
+          const apiResponse = await fetchWeather(userDetails.city);
         if (apiResponse.data != "") {
           setWeather(apiResponse?.data);
           setLoading(false);
@@ -62,7 +62,7 @@ const Dashboard = () => {
       }
     } catch (error) {
       console.log("Error loading weather:", error);
-      setErrMsg("API error! Please Try again latter");
+      setErrMsg("API Error! Please try again latter");
       setLoading(false);
     }
   };
@@ -87,7 +87,7 @@ const Dashboard = () => {
     >
       <StatusBar barStyle="dark-content" backgroundColor="#2575fc"/>
       <SafeAreaView style={styles.container}>
-        <Header title="Dashboard" />
+        <Header title="Dashboard" hideBack={true}/>
         <ScrollView
           contentContainerStyle={styles.scrollView}
           showsVerticalScrollIndicator={false}
@@ -166,13 +166,14 @@ const Dashboard = () => {
           ) : (
             <View style={styles.weatherContainer}>
               <Text style={styles.errorText}>{errorMsg}</Text>
+              {city ? 
               <TouchableOpacity style={styles.reloadBtn} onPress={() => {
                 setLoading(true);
                 loadWeather();
               }}>
                 <Ionicons name="refresh-outline" size={24} color="#000" />
                 <Text>Reload</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> : null}
             </View>
           )}
 

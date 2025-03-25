@@ -15,8 +15,8 @@ const AddDetails = props => {
     <FormProvider {...methods}>
       <Stack.Navigator
         screenOptions={{
-          animation: "slide_from_right", // Slide effect
-          gestureEnabled: true,          // Enable swipe gestures
+          // animation: "slide_from_right", // Slide effect
+          // gestureEnabled: true,          // Enable swipe gestures
         }}
       >
         <Stack.Screen name="Page1" component={Page1} options={{ headerShown:false }} />

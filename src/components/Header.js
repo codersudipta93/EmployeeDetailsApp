@@ -9,12 +9,12 @@ const Header = (props) => {
     const navigation = useNavigation();
     return (
         <View>
-            <View style={styles.header}>
+            <View style={[styles.header,{paddingVertical: props.hideBack ? 17:10,}]}>
                 <TouchableOpacity
                     style={styles.backButton}
                     onPress={props.backAction}
                 >
-                    <Ionicons name="arrow-back" size={22} color="white" />
+                  {!props.hideBack ? <Ionicons name="arrow-back" size={22} color="white" /> : null}
                 </TouchableOpacity>
                 <Text style={styles.headerTitle}>{props?.title}</Text>
                 <View style={styles.headerPlaceholder} />
@@ -29,7 +29,6 @@ header: {
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 15,
-    paddingVertical: 10,
     backgroundColor: 'rgba(0,0,0,0.1)',
 },
 backButton: {
